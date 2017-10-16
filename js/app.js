@@ -10,9 +10,10 @@ function cifrado(){
 			{
 				const valorDesplazamiento = parseInt(desplazamiento.value);
 				
-				valorEntero = valorEntero + valorDesplazamiento;
-				if(valorEntero > 122)
-					valorEntero = 97 + valorEntero - 122 - valorDesplazamiento;
+				if(valorEntero + valorDesplazamiento > 122)
+					valorEntero = 97 + (valorEntero - 122) + valorDesplazamiento - 1;
+				else
+					valorEntero = valorEntero + valorDesplazamiento;
 			}
 	
 			return String.fromCharCode(valorEntero);

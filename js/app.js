@@ -5,7 +5,8 @@ const textoCifrado = document.getElementById("cifrado");
 function cifrado(){
 	const textoIngresado = texto.value;
 	textoCifrado.value = textoIngresado.split('').map(c=>{
-		let valorEntero = c.charCodeAt(0);
+		let mayus = (c === c.toUpperCase()) ? true : false;
+		let valorEntero = c.toLowerCase().charCodeAt(0);
 		if(valorEntero >= 97 && valorEntero <= 122)
 			{
 				const valorDesplazamiento = parseInt(desplazamiento.value);
@@ -16,7 +17,8 @@ function cifrado(){
 					valorEntero = valorEntero + valorDesplazamiento;
 			}
 	
-			return String.fromCharCode(valorEntero);
+			let cifrado = String.fromCharCode(valorEntero);
+			return mayus ? cifrado.toUpperCase() : cifrado;
 		}).join('');
 }
 
